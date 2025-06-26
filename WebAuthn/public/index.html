@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebAuthn Demo</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>WebAuthn</h1>
+        <p class="subtitle">A demo of the WebAuthn specification</p>
+
+        <input type="text" id="regUsername" placeholder="example_username">
+
+        <div class="button-group">
+            <button id="btnRegister">Register</button>
+            <button id="btnLogin">Authenticate</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@simplewebauthn/browser@10.0.0/dist/bundle/index.umd.min.js"></script>
+    <script src="/main.js"></script>
+</body>
+
+</html>

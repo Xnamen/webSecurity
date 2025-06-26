@@ -1,0 +1,174 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(to bottom right, #a8e063, #56ab2f); /* Green to yellow-green gradient */
+    color: #333;
+    box-sizing: border-box;
+    padding: 20px; /* Add some padding for smaller screens */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 3em;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+    width: 100%;
+    max-width: 500px; /* Limit container width */
+    text-align: center; /* Center content within container */
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    backdrop-filter: blur(5px); /* Optional: subtle blur effect */
+}
+
+h1 {
+    color: #2d3436; /* Darker, modern heading color */
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 2em;
+}
+
+input[type="text"] {
+    width: calc(100% - 40px); /* Account for padding */
+    padding: 15px 20px;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center; /* Center placeholder text */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.button-group {
+    display: flex;
+    gap: 1em; /* Space between buttons */
+    margin-bottom: 1.5em;
+}
+
+.button-group button {
+    flex: 1; /* Make buttons take equal width */
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#btnRegister {
+    background-color: #4CAF50; /* Green for Register */
+    color: white;
+}
+
+#btnRegister:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+#btnLogin {
+    background-color: #2196F3; /* Blue for Authenticate */
+    color: white;
+}
+
+#btnLogin:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+#btnAdvancedSettings {
+    background-color: #607D8B; /* Gray for Advanced Settings */
+    color: white;
+    width: auto; /* Allow button to size based on content */
+    padding: 12px 25px;
+    margin: 0 auto; /* Center this button if it's a single block */
+    display: block; /* Ensure it takes full width when alone if needed */
+}
+
+#btnAdvancedSettings:hover {
+    background-color: #455A64;
+    transform: translateY(-2px);
+}
+
+#message {
+    margin-top: 1.5em;
+    padding: 1.2em;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Card styling for dashboard and other general uses */
+.card {
+    background-color: #f9fbfd; /* Slightly different background for cards */
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 2em;
+    margin: 2em 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for cards */
+    display: block; /* Ensure cards are visible */
+    text-align: left; /* Align text left within the card */
+}
+
+.card h2 {
+    color: #2c3e50; /* Darker, professional blue */
+    margin-bottom: 0.8em;
+    font-weight: 600;
+    font-size: 1.6em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5em;
+    margin-bottom: 1.2em;
+    display: block; /* Ensure h2 in card is visible */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1.5em;
+}
+
+li {
+    background-color: #e6ffe6; /* Light green background for list items */
+    margin-bottom: 0.8em;
+    padding: 1em 1.2em;
+    border-left: 4px solid #4CAF50; /* Green accent border */
+    border-radius: 6px;
+    font-size: 0.95em;
+    word-break: break-word; /* Ensure long text breaks */
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-family: 'Fira Code', 'Cascadia Code', monospace; /* Monospace font for code */
+    color: #c7254e; /* Distinct color for code snippets */
+}
+
+/* Specific overrides for the index.html page to hide elements not in the reference image */
+body:not(.dashboard-page) .card,
+body:not(.dashboard-page) .card h2 {
+    display: none;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body class="dashboard-page">
+    <div class="container">
+        <h1 id="welcome-message">Willkommen!</h1>
+        <p>Du hast dich erfolgreich angemeldet.</p>
+
+        <div class="card">
+            <ul id="auth-info-list">
+            </ul>
+        </div>
+
+        <button id="btnLogout">Abmelden</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const res = await fetch('/api/user-info');
+                if (!res.ok) {
+                    // If not logged in, redirect to home page
+                    window.location.href = '/';
+                    return;
+                }
+                const data = await res.json();
+
+                // Update welcome message with username
+                document.getElementById('welcome-message').textContent = `Willkommen, ${data.username}!`;
+
+                // Populate authentication information list
+                const list = document.getElementById('auth-info-list');
+                list.innerHTML = `
+                    <li><b>Relying Party ID (RP ID):</b> <code>${data.rpId}</code></li>
+                    <li><b>Origin:</b> <code>${data.origin}</code></li>
+                    <li><b>Genutzte Credential ID (Base64URL):</b> <code style="word-break: break-all;">${data.loginInfo.credentialID}</code></li>
+                    <li><b>Nutzer wurde verifiziert (Biometrie/PIN):</b> <code>${data.loginInfo.userVerified ? 'Ja' : 'Nein'}</code></li>
+                    <li><b>Neuer Signatur-Zähler:</b> <code>${data.loginInfo.newCounter}</code></li>
+                `;
+            } catch (e) {
+                console.error('Fehler beim Laden der User-Info:', e);
+                // In case of error, redirect to home page
+                window.location.href = '/';
+            }
+        });
+
+        // Logout button functionality
+        document.getElementById('btnLogout').addEventListener('click', async () => {
+            await fetch('/logout', { method: 'POST' });
+            window.location.href = '/';
+        });
+    </script>
+</body>
+
+</html>
